@@ -1,0 +1,8 @@
+E:\P\ProjectOne\ShetaPersonal\ShetaPersonal\obj\Debug\netcoreapp3.1\ShetaPersonal.csprojAssemblyReference.cache
+E:\P\ProjectOne\ShetaPersonal\ShetaPersonal\obj\Debug\netcoreapp3.1\ShetaPersonal.csproj.CoreCompileInputs.cache
+E:\P\ProjectOne\ShetaPersonal\ShetaPersonal\obj\Debug\netcoreapp3.1\ShetaPersonal.MvcApplicationPartsAssemblyInfo.cs
+E:\P\ProjectOne\ShetaPersonal\ShetaPersonal\obj\Debug\netcoreapp3.1\ShetaPersonal.MvcApplicationPartsAssemblyInfo.cache
+E:\P\ProjectOne\ShetaPersonal\ShetaPersonal\obj\Debug\netcoreapp3.1\ShetaPersonal.RazorAssemblyInfo.cache
+E:\P\ProjectOne\ShetaPersonal\ShetaPersonal\obj\Debug\netcoreapp3.1\ShetaPersonal.RazorAssemblyInfo.cs
+E:\P\ProjectOne\ShetaPersonal\ShetaPersonal\obj\Debug\netcoreapp3.1\ShetaPersonal.AssemblyInfoInputs.cache
+E:\P\ProjectOne\ShetaPersonal\ShetaPersonal\obj\Debug\netcoreapp3.1\ShetaPersonal.AssemblyInfo.cs

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ShetaPersonal.Data.Model.Entities.Sabeghe>;
+
+<div class="container">
+    <div style="direction: rtl;">
+        @foreach (var item in Model.OrderByDescending(s => s.SId))
+        {
+            <div class="experience-block clearfix">
+                <div class="meta">
+                    <span class="year">@item.StartTime-@item.EndTime</span>
+                    <span class="company">@item.Stitle</span>
+                </div> <!-- end .meta -->
+               
+                <div class="icon">
+                    <i class="@item.Icon"></i>
+                </div> <!-- end .icon -->
+                <div class="line"></div>
+            </div> <!-- end .experience-block -->
+        }
+
+
+    </div>
+</div>
+
+
+
+
+

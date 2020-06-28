@@ -1,0 +1,80 @@
+﻿@page
+@using ShetaPersonal.Data.Model.Entities
+@model ShetaPersonal.Web.Pages.Admin.Tahsilat.IndexModel
+@{
+    ViewData["Title"] = "لیست تحصیلات";
+    Layout = "~/Pages/Shared/Admin_Layout.cshtml";
+}
+
+<div class="main-content" id="panel">
+    @await Component.InvokeAsync("NavbarGroupComponent")
+    <hr />
+    <div class="container-fluid mt--6">
+        <!-- Dark table -->
+        <div class="row">
+            <div class="col">
+                <div class="card bg-default shadow">
+                    <div class="card-header bg-transparent border-0">
+                        <h3 class="text-white mb-0">لیست تحصیلات</h3>
+                        <a asp-page="createtahsilat" class="btn btn-success">افزودن کاربر</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-dark table-flush">
+                            <thead class="thead-dark" style="font-size: medium!important;">
+                                <tr>
+                                    <th scope="col" class="sort" data-sort="budget">دانشگاه</th>
+                                    <th scope="col" class="sort" data-sort="status">مقطع</th>
+                                    <th scope="col" class="sort" data-sort="status">رشته</th>
+                                    <th scope="col" class="sort" data-sort="status">گرایش</th>
+                                    <th scope="col" class="sort" data-sort="status">شروع</th>
+                                    <th scope="col" class="sort" data-sort="status">پایان</th>
+                                    <th scope="col" class="sort" data-sort="completion">دستورات</th>
+                                </tr>
+                            </thead>
+                            <tbody class="list">
+
+                                @foreach (var tahsilat in Model.TahsilatViewModel.Tahsilats)
+                                {
+                                <tr>
+
+                                    <td>@tahsilat.Daneshgah</td>
+                                    <td>@tahsilat.maghta</td>
+                                    <td>@tahsilat.Reshte</td>
+                                    <td>@tahsilat.gerayesh</td>
+                                    <td>@tahsilat.StartTime</td>
+                                    <td>@tahsilat.EndTime</td>
+                                    <td>
+                                        <a asp-page="edittahsilat"asp-route-id="@tahsilat.TahsilatId"class="btn btn-warning btn-sm">
+                                            ویرایش
+                                        </a>
+                                        <a asp-page="deletetahsilat"asp-route-id="@tahsilat.TahsilatId" class="btn btn-danger btn-sm">
+                                            حذف
+                                        </a>
+                                    </td>
+                                </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card-footer py-4 shadow" style="        background-color: #263238;">
+                        <nav aria-label="...">
+                            <ul class="pagination justify-content-end mb-0">
+
+                                @for (int i = 1; i <= Model.TahsilatViewModel.PageCount; i++)
+                                {
+                                    <li class="page-item  @((i==Model.TahsilatViewModel.CurrentPage)?"active":"")" aria-controls="dataTables-example" tabindex="0">
+                                        <a class="page-link" href="/Admin/tahsilat?PageId=@i">@i</a>
+                                    </li>
+                                }
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

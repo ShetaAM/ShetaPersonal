@@ -1,0 +1,68 @@
+﻿@model ShetaPersonal.Core.DTO.MaharatViewModel;
+
+
+    <!-- About Section -->
+    <div class="about-section row" style="margin-left: 0!important;margin-right: 0!important;">
+        <div class="section-title text-center col-xs-12">
+            <h2> <span>مهارت های</span> فنی </h2>
+        </div>
+        <!-- About Content -->
+        @*<div class="col-lg-4 col-md-7 col-xs-12">
+            <div class="about-content">
+                <h4>about me</h4>
+                <h2>I'm <span>kevin wood,</span><br>A web designer & developer</h2>
+                <p>There are many variations of passages of Lorem Ipsum available, but the majority ferteration in some form, by injected humour, or randomised words which don't look even s believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything rrassing hidden in the middle of text.</p>
+                <a href="#" class="btn">Download Resume</a>
+            </div>
+        </div>*@
+        <!-- Skill Wrapper -->
+        <div class="col-lg-6 col-md-7 col-xs-12">
+            <div class="skill-wrapper">
+                @foreach (var maharat in Model.maharats.Take(Model.maharats.Count/2))
+                {
+                    <div class="single-skill">
+                        <h5>@maharat.Title</h5>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: @maharat.Persent%;"><span>@maharat.Persent%</span></div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-7 col-xs-12"style="margin-bottom: 35px;">
+            <div class="skill-wrapper">
+                @foreach (var maharat in Model.maharats.Skip(Model.maharats.Count/2))
+                {
+                    <div class="single-skill">
+                        <h5>@maharat.Title</h5>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: @maharat.Persent%;"><span>@maharat.Persent%</span></div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <!-- Service Section -->
+    <div class="service-section row">
+        <!-- Section Title -->
+        <div class="section-title text-center col-xs-12">
+            <h2> <span>دانش</span> فردی</h2>
+        </div>
+        <!-- Single Service -->
+        @foreach (var danesh in Model.Daneshes)
+        {
+            <div class="col-lg-3 col-sm-6 col-xs-12 mb-30"style="float: right;">
+                <div class="single-service text-center">
+                    <i class="@danesh.Icon"></i>
+                    <h5>@danesh.DaneshName</h5>
+                    <span class="border"></span>
+                    <p>@danesh.Tozihat</p>
+                </div>
+            </div>
+        }
+
+    </div>
+    <!-- Pricing Section -->
+   
+

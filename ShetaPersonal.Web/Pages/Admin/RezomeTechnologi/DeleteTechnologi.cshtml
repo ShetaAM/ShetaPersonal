@@ -1,0 +1,31 @@
+﻿@page "{id}"
+@model ShetaPersonal.Web.Pages.Admin.RezomeTechnologi.DeleteTechnologiModel
+@{
+    ViewData["Title"] = "DeleteTechnologi";
+    Layout = "~/Pages/Shared/Admin_Layout.cshtml";
+}
+
+    <div class="main-content" id="panel">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-user">
+                    <div class="card-header">
+                        <form method="post">
+                            <input type="hidden" name="detailid" value="@ViewData["detailid"]" />
+                            <dl class="dl-horizontal">
+                                <dt>مهارت : </dt>
+                                <dd>@Model.RezomeDetail.TecTitle</dd>
+                                <dt></dt>
+                                <dd>
+                                    <input type="submit" value="حذف" class="btn btn-danger" />
+                                </dd>
+                            </dl>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+

@@ -1,0 +1,56 @@
+﻿@page
+@model ShetaPersonal.Web.Pages.Admin.Profile.ProfileModel
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Pages/Shared/Admin_Layout.cshtml";
+}
+
+    <div class="main-content" id="panel">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-user">
+                    <div class="card-header">
+                        <h5 class="card-title" style="font-size: 25px;">ویرایش پروفایل</h5>
+                    </div>
+                    <div class="card-body" style="float: right !important;">
+
+                        <form method="post" enctype="multipart/form-data">
+                            <input type="hidden" asp-for="About.UserId"/>
+                            <input type="hidden" asp-for="About.PhoneNumber"/>
+                            <input type="hidden" asp-for="About.Password"/>
+                            <input type="hidden" asp-for="About.Profile"/>
+                            <input type="hidden" asp-for="About.AboutMe"/>
+                            <input type="hidden" asp-for="About.FName"/>
+                            <input type="hidden" asp-for="About.LName"/>
+                            <input type="hidden" asp-for="About.FNameEN"/>
+                            <input type="hidden" asp-for="About.LNameEN"/>
+                            <input type="hidden" asp-for="About.BirthDay"/>
+                            <div class="row">
+                                <div class="col-md-6 pr-1">
+                                    <div class="form-group">
+                                        <label class="control-label" for="UserName">نام کاربری </label>
+                                        <input type="text" asp-for="About.UserName" class="form-control">
+                                        <span class="text-danger field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 px-1">
+                                    <div class="form-group">
+                                        <label class="control-label" for="Email">ایمیل</label>
+                                        <input type="text" asp-for="About.Email" class="form-control">
+                                        <span class="text-danger field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 pl-1">
+                                    <div class="form-group">
+                                        <input type="submit" value="ویرایش اطلاعات" class="btn btn-success" style="width: 100%;" />
+                                    </div>
+                                </div>
+                                <a asp-page="ChangePassword" class="btn btn-dark">تغییر کلمه عبور</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+

@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using ShetaPersonal.Core.Serevices.Interface;
+
+namespace ShetaPersonal.Web.Pages.Admin.Setting
+{
+    [Authorize]
+    public class IndexModel : PageModel
+    {
+        private IAdminService _adminService;
+
+        public IndexModel(IAdminService adminService)
+        {
+            _adminService = adminService;
+        }
+        [BindProperty]
+        public Data.Model.Entities.Setting Setting { get; set; }
+        public void OnGet()
+        {
+            Setting = _adminService.GetSetting(1);
+        }
+
+        public IActionResult OnPost()
+        {
+            
+            _adminService.UpdateSetting(Setting);
+            return Redirect("/admin/controlpanel");
+        }
+    }
+}

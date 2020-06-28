@@ -1,0 +1,78 @@
+﻿@page
+@model ShetaPersonal.Web.Pages.Admin.Tahsilat.EditTahsilatModel
+@{
+    ViewData["Title"] = "ویرایش تحصیلات";
+    Layout = "~/Pages/Shared/Admin_Layout.cshtml";
+}
+
+<div class="main-content" id="panel">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-user">
+                <div class="card-header">
+                    <h5 class="card-title" style="font-size: 25px;">ویرایش تحصیلات</h5>
+                </div>
+                <div class="card-body" style="float: right !important;">
+
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <input type="hidden"asp-for="Tahsilat.TahsilatId"/>
+                            <input type="hidden"asp-for="Tahsilat.UserId"value="1"/>
+                            <div class="col-md-6 pr-1">
+                                <div class="form-group">
+                                    <label class="control-label" for="UserName">نام دانشگاه</label>
+                                    <input type="text" asp-for="Tahsilat.Daneshgah" class="form-control">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 px-1">
+                                <div class="form-group">
+                                    <label class="control-label" for="Email">مقطع</label>
+                                    <input type="text" asp-for="Tahsilat.maghta" class="form-control">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 pr-1">
+                                <div class="form-group">
+                                    <label class="control-label" for="UserName">رشته</label>
+                                    <input type="text" asp-for="Tahsilat.Reshte" class="form-control">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 pr-1">
+                                <div class="form-group">
+                                    <label class="control-label" for="UserName">گرایش</label>
+                                    <input type="text" asp-for="Tahsilat.gerayesh" class="form-control">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 pr-1">
+                                <div class="form-group">
+                                    <label class="control-label" for="UserName">شروع تحصیل</label>
+                                    <input type="text" asp-for="Tahsilat.StartTime" class="form-control">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 pr-1">
+                                <div class="form-group">
+                                    <label class="control-label" for="UserName">پایان تحصیل</label>
+                                    <input type="text" asp-for="Tahsilat.EndTime" class="form-control">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 pl-1">
+                                <div class="form-group">
+                                    <input type="submit" value="ذخیره اطلاعات" class="btn btn-success" style="width: 100%;"/>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

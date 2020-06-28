@@ -1,0 +1,30 @@
+﻿@model IEnumerable<ShetaPersonal.Data.Model.Entities.Tahsilat>;
+
+<div class="education-section row">
+    <!-- Section Title -->
+    <div class="section-title text-center col-xs-12">
+        <h2><span>تحصیلات</span></h2>
+    </div>
+
+    <div class="col-xs-12">
+        <!-- Resume Timeline -->
+        <div class="resume-timeline">
+            
+            @foreach (var item in Model)
+            {
+                <!-- Single Timeline -->
+                <div class="single-timeline right">
+                    <i class="circle"></i>
+                    <div class="wrap text-center">
+                        <span>@item.Daneshgah</span>
+                        <h4>رشته:@item.Reshte</h4>
+                        <h5>گرایش:@item.gerayesh</h5>
+                        <p>مقطع: @item.maghta</p>
+                        <span>@item.StartTime-@item.EndTime</span>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>

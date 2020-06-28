@@ -1,0 +1,96 @@
+﻿@page
+@model ShetaPersonal.Web.Pages.Admin.About.EditAboutModel
+@{
+    ViewData["Title"] = "EditAbout";
+    Layout = "~/Pages/Shared/Admin_Layout.cshtml";
+}
+
+<div class="main-content" id="panel">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-user">
+                <div class="card-header">
+                    <h5 class="card-title" style="font-size: 25px;">ویرایش درباره من</h5>
+                </div>
+                <div class="card-body" style="float: right !important;">
+
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <input type="hidden" asp-for="About.UserId" />
+                            <input type="hidden" asp-for="About.UserName" />
+                            <input type="hidden" asp-for="About.Profile" />
+                            <input type="hidden" asp-for="About.Password" />
+                            <input type="hidden" asp-for="About.Email" />
+                            <div class="col-md-6 pr-1">
+                                <div class="form-group">
+                                    <label class="control-label" for="UserName">نام</label>
+                                    <input type="text" asp-for="About.FName" class="form-control">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 px-1">
+                                <div class="form-group">
+                                    <label class="control-label" for="Email">نام خانوادگی</label>
+                                    <input type="text" asp-for="About.LName" class="form-control">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 pr-1">
+                                <div class="form-group">
+                                    <label class="control-label" for="UserName">نام انگلیسی</label>
+                                    <input type="text" asp-for="About.FNameEN" class="form-control">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 px-1">
+                                <div class="form-group">
+                                    <label class="control-label" for="Email">نام خانوادگی انکلیسی</label>
+                                    <input type="text" asp-for="About.LNameEN" class="form-control">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 pr-1">
+                                <div class="form-group">
+                                    <label class="control-label" for="UserName">تاریخ تولد</label>
+                                    <input type="text" asp-for="About.BirthDay" class="form-control">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 pr-1">
+                                <div class="form-group">
+                                    <label class="control-label" for="UserName">موبایل</label>
+                                    <input type="text" asp-for="About.PhoneNumber" class="form-control">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 pr-1">
+                                <div class="form-group">
+                                    <label class="control-label" for="UserName">درباره من</label>
+                                    <textarea asp-for="About.AboutMe" class="form-control"></textarea>
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 pr-1">
+                                <div class="form-group">
+                                    <label class="control-label" for="UserName">پروفایل</label>
+                                    <img style="width: 100px;" src="/Site/img/@Model.About.Profile" />
+                                    <input type="file" name="ImgProuct">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 pl-1">
+                                <div class="form-group">
+                                    <input type="submit" value="ذخیره اطلاعات" class="btn btn-success" style="width: 100%;" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

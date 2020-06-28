@@ -1,0 +1,69 @@
+﻿@page "{id}"
+@model ShetaPersonal.Web.Pages.Admin.RezomeDetails.IndexModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/Admin_Layout.cshtml";
+}
+
+<div class="main-content" id="panel">
+    @await Component.InvokeAsync("NavbarGroupComponent")
+    <hr />
+    <div class="container-fluid mt--6">
+        <!-- Dark table -->
+        <div class="row">
+            <div class="col">
+                <div class="card bg-default shadow">
+                    <div class="card-header bg-transparent border-0">
+                        <h3 class="text-white mb-0">لیست جزئیات </h3>
+                        <a href="/admin/rezomedetails/CreateDetail/@Model.RezomeId" class="btn btn-success">افزودن جزئیات</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-dark table-flush">
+                            <thead class="thead-dark" style="font-size: medium!important;">
+                                <tr>
+                                    <th scope="col" class="sort" data-sort="budget">عنوان </th>
+                                    <th scope="col" class="sort" data-sort="status">مقدار </th>
+                                    <th scope="col" class="sort" data-sort="status">دستورات</th>
+                                </tr>
+                            </thead>
+                            <tbody class="list">
+
+                                @foreach (var detail in Model.DetailViewModel.Rezomedetails)
+                                {
+                                    <tr>
+                                        <td>@detail.DetailCaption</td>
+                                        <td>@detail.DetailValue</td>
+                                        <td>
+                                            <a href="/admin/rezomedetails/editdetail/@detail.DetailId" class="btn btn-warning btn-sm">
+                                                ویرایش
+                                            </a>
+                                            <a href="/admin/rezomedetails/deletedetail/@detail.DetailId" class="btn btn-danger btn-sm">
+                                                حذف
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card-footer py-4 shadow" style="        background-color: #263238;">
+                        <nav aria-label="...">
+                            <ul class="pagination justify-content-end mb-0">
+
+                                @for (int i = 1; i <= Model.DetailViewModel.PageCount; i++)
+                                {
+                                    <li class="page-item  @((i==Model.DetailViewModel.CurrentPage)?"active":"")" aria-controls="dataTables-example" tabindex="0">
+                                        <a class="page-link" href="/Admin/rezomedetail/?PageId=@i">@i</a>
+                                    </li>
+                                }
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

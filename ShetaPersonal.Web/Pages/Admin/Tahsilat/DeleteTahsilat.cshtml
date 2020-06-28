@@ -1,0 +1,42 @@
+﻿@page
+@model ShetaPersonal.Web.Pages.Admin.Tahsilat.DeleteTahsilatModel
+@{
+    ViewData["Title"] = "حذف تحصیلات";
+    Layout = "~/Pages/Shared/Admin_Layout.cshtml";
+}
+
+<div class="main-content" id="panel">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-user">
+                <div class="card-header">
+                    <form method="post">
+                        <input type="hidden" name="tahsilatId" value="@ViewData["TahsilatId"]" />
+                        <dl class="dl-horizontal">
+                            <dt>دانشگاه : </dt>
+                            <dd>@Model.Tahsilat.Daneshgah</dd>
+                            <dt>مقطع : </dt>
+                            <dd>@Model.Tahsilat.maghta</dd>
+                            <dt>رشته : </dt>
+                            <dd>@Model.Tahsilat.Reshte</dd>
+                            <dt>گرایش : </dt>
+                            <dd>@Model.Tahsilat.gerayesh</dd>
+                            <dt>شروع : </dt>
+                            <dd>@Model.Tahsilat.StartTime</dd>
+                            <dt>نام کاربری : </dt>
+                            <dd>@Model.Tahsilat.EndTime</dd>
+                            <dt></dt>
+                            <dd>
+                                <input type="submit" value="حذف" class="btn btn-danger" />
+                            </dd>
+                        </dl>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

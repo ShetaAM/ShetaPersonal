@@ -1,0 +1,145 @@
+﻿@using ShetaPersonal.Core.Serevices.Interface
+
+@inject IAdminService _AdminService;
+@{
+    string Title = _AdminService.GetNameOfSite(1);
+    string Icon = _AdminService.GetIcon(1);
+}
+<!doctype html>
+<html class="no-js" lang="fa">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="googlebot" content="index,follow">
+    <meta name="robots" content="noodp,noydir">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@Title</title>
+    <link rel="icon" href="/@Icon/" type="image/png" />
+    <meta name="description" content="Sanam - Resume / CV / vCard Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Personal , Personal portfolio template, Personal portfolio, landing page, material design, portfolio, Resume, vCard , vCard Template, CV, CV Template">
+    <meta name="author" content="regaltheme.com">
+    <!-- Favicon -->
+    <!-- CSS -->
+    <!-- Bootstrap CSS
+    ============================================ -->
+    <link rel="stylesheet" href="/Site/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Icon Font CSS
+    ============================================ -->
+    <link rel="stylesheet" href="/Site/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="/Site/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/Site/css/menu-icon.css">
+    <link href="~/Site/Tahsilat.css" rel="stylesheet" />
+    <!-- Plugins CSS
+    ============================================ -->
+    <link rel="stylesheet" href="/Site/css/plugins.css">
+    <!-- Style CSS
+    ============================================ -->
+    <link rel="stylesheet" href="/Site/style.css">
+    <!-- Modernizer JS
+    ============================================ -->
+    <script src="/Site/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body>
+    <!-- Body main wrapper start -->
+    <div id="preloader">
+        <div class="preloader-center">
+            <div class="preloader-center-absolute">
+                <div class="object1">
+                    <img style="width: 200px; height: auto;" src="/Site/img/loading-3-min.gif" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Body main wrapper start -->
+    <button class="menu-toggle"><i class="fa fa-navicon open" style="color: #443f52;"></i><i class="fa fa-close close" style="color: #443f52;"></i></button>
+    <div class="wrapper fix">
+        <!-- Menu Area
+        ============================================ -->
+        <div id="menu-area" class="menu-area section animated">
+            <div class="container">
+                <div class="menu-section row" style="margin-top: 0 !important; padding-top: 0 !important;">
+                    <div class="col-xs-12">
+                        <div class="menu-wrapper">
+                            <img src="/Site/img/menu1.png" alt="">
+                            <nav class="main-menu">
+                                <ul>
+                                    <li><a href="#portfolio-area"><i class="fa fa-graduation-cap"></i><span>تحصیلات</span></a></li>
+                                    <li><a href="#about-area"><i class="fa fa-handshake-o"></i><span>تجربیات</span></a></li>
+                                    <li><a href="#home-area"><i class="fa fa-user-o"></i><span>درباره من</span></a></li>
+                                    <li><a href="#resume-area"><i class="fa fa-file-code-o"></i><span>مهارت</span></a></li>
+                                    <li><a href="#blog-area"><i class="fa fa-folder-open-o"></i><span>نمونه کار</span></a></li>
+                                    <li><a href="#contact-area"><i class="fa fa-envelope-o"></i><span>ارتباط با من</span></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- درباره من
+        ============================================ -->
+        <div id="home-area" class="home-area section animated active">
+            @await Component.InvokeAsync("AboutMeComponent")
+        </div>
+
+        <!-- سابقه
+        ============================================ -->
+        <div id="about-area" class="about-area section animated"style="height: auto !important;">
+            @await Component.InvokeAsync("SabegheComponent")
+
+
+        </div>
+
+        <!-- مهارت
+            ============================================ -->
+        <div id="resume-area" class="resume-area section animated">
+            @await Component.InvokeAsync("MaharatComponent")
+
+        </div>
+
+        <!--  تحصیلات
+        ============================================ -->
+        <div id="portfolio-area" class="portfolio-area section animated"style="height: auto !important;">
+            @await Component.InvokeAsync("TahsilatComponent")
+        </div>
+
+        <!-- رزومه
+            ============================================ -->
+        <div id="blog-area" class="blog-area section animated">
+            @await Component.InvokeAsync("RezomeComponent")
+        </div>
+        
+        <!-- Contact Area
+        ============================================ -->
+        <div id="contact-area" class="contact-area section animated">
+            @await Component.InvokeAsync("TamasComponent")
+        </div>
+
+    </div>
+    @RenderBody()
+    <!-- Body main wrapper end -->
+    <!-- JS -->
+    <!-- jQuery JS
+    ============================================ -->
+    <script src="/Site/js/vendor/jquery-1.12.0.min.js"></script>
+    <!-- Bootstrap JS
+    ============================================ -->
+    <script src="/Site/js/bootstrap.min.js"></script>
+    <!-- Plugins JS
+    ============================================ -->
+    <script src="/Site/js/plugins.js"></script>
+    <!-- Form JS
+    ============================================ -->
+    <script src="/Site/js/form.js"></script>
+    <!-- Main JS
+    ============================================ -->
+    <script src="/Site/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+﻿@page
+@model ShetaPersonal.Web.Pages.Admin.Danesh.CreateDaneshModel
+@{
+    ViewData["Title"] = "افزودن دانش";
+    Layout = "~/Pages/Shared/Admin_Layout.cshtml";
+}
+
+<div class="main-content" id="panel">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-user">
+                <div class="card-header">
+                    <h5 class="card-title" style="font-size: 25px;">افزودن دانش</h5>
+                </div>
+                <div class="card-body" style="float: right !important;">
+
+                    <form method="post" enctype="multipart/form-data">
+                        <input type="hidden" asp-for="Danesh.UserId" value="1" />
+                        <div class="row">
+                            <div class="col-md-6 pr-1">
+                                <div class="form-group">
+                                    <label class="control-label" for="UserName">عنوان دانش</label>
+                                    <input type="text" asp-for="Danesh.DaneshName" class="form-control">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 px-1">
+                                <div class="form-group">
+                                    <label class="control-label" for="Email">آیکون دانش</label>
+                                    <input type="text" asp-for="Danesh.Icon" class="form-control">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 px-1">
+                                <div class="form-group">
+                                    <label class="control-label" for="Email">توضیح دانش</label>
+                                    <textarea  asp-for="Danesh.Tozihat" class="form-control"></textarea>
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 pl-1">
+                                <div class="form-group">
+                                    <input type="submit" value="ذخیره اطلاعات" class="btn btn-success" style="width: 100%;" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

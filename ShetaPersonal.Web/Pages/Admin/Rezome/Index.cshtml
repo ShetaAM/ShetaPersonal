@@ -1,0 +1,81 @@
+﻿@page
+@model ShetaPersonal.Web.Pages.Admin.Rezome.IndexModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/Admin_Layout.cshtml";
+}
+
+    <div class="main-content" id="panel">
+        @await Component.InvokeAsync("NavbarGroupComponent")
+        <hr />
+        <div class="container-fluid mt--6">
+            <!-- Dark table -->
+            <div class="row">
+                <div class="col">
+                    <div class="card bg-default shadow">
+                        <div class="card-header bg-transparent border-0">
+                            <h3 class="text-white mb-0">لیست رزومه ها</h3>
+                            <a asp-page="createrezome" class="btn btn-success">افزودن رزومه</a>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-dark table-flush">
+                                <thead class="thead-dark" style="font-size: medium!important;">
+                                    <tr>
+                                        <th scope="col" class="sort" data-sort="budget">تصویر</th>
+                                        <th scope="col" class="sort" data-sort="status">عنوان</th>
+                                        <th scope="col" class="sort" data-sort="status">لینک رزومه</th>
+                                        <th scope="col" class="sort" data-sort="completion">دستورات</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="list">
+
+                                    @foreach (var rezome in Model.ViewModel.Rezomes)
+                                    {
+                                        <tr>
+
+                                            <td><img style="width: 150px;" src="/Site/img/@rezome.RezomeImage"/></td>
+                                            <td>@rezome.RezomeTitle</td>
+                                            <td>@rezome.RezomeLink</td>
+                                            <td>
+                                                <a asp-page="editrezome" asp-route-id="@rezome.RezomeId" class="btn btn-warning btn-sm">
+                                                    ویرایش
+                                                </a>
+                                                <a href="/admin/rezomedetails/@rezome.RezomeId"class="btn btn-primary btn-sm">
+                                                    جزئیات
+                                                </a>
+                                                <a href="/admin/RezomeTechnologi/@rezome.RezomeId" class="btn btn-dark btn-sm">
+                                                    تکنولوژی ها
+                                                </a>
+                                                <a href="/admin/Gallary/@rezome.RezomeId" class="btn btn-info btn-sm">
+                                                    گالری
+                                                </a>
+                                                <a asp-page="deleterezome" asp-route-id="@rezome.RezomeId" class="btn btn-danger btn-sm">
+                                                    حذف
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="card-footer py-4 shadow" style="        background-color: #263238;">
+                            <nav aria-label="...">
+                                <ul class="pagination justify-content-end mb-0">
+
+                                    @for (int i = 1; i <= Model.ViewModel.PageCount; i++)
+                                    {
+                                        <li class="page-item  @((i==Model.ViewModel.CurrentPage)?"active":"")" aria-controls="dataTables-example" tabindex="0">
+                                            <a class="page-link" href="/Admin/rezome?PageId=@i">@i</a>
+                                        </li>
+                                    }
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+

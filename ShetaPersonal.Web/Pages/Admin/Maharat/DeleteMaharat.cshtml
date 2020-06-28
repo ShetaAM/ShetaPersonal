@@ -1,0 +1,31 @@
+﻿@page
+@model ShetaPersonal.Web.Pages.Admin.Maharat.DeleteMaharatModel
+@{
+    ViewData["Title"] = "DeleteMaharat";
+    Layout = "~/Pages/Shared/Admin_Layout.cshtml";
+}
+
+    <div class="main-content" id="panel">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-user">
+                    <div class="card-header">
+                        <form method="post">
+                            <input type="hidden" name="Maharatid" value="@ViewData["Maharatid"]" />
+                            <dl class="dl-horizontal">
+                                <dt>مهارت : </dt>
+                                <dd>@Model.Maharat.Title</dd>
+                                <dt></dt>
+                                <dd>
+                                    <input type="submit" value="حذف" class="btn btn-danger" />
+                                </dd>
+                            </dl>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+

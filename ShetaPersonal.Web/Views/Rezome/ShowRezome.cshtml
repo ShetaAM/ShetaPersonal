@@ -1,0 +1,162 @@
+﻿@model ShetaPersonal.Core.DTO.ShoewRezomeViewModel;
+@{
+    Layout = null;
+}
+
+@using ShetaPersonal.Core.Serevices.Interface
+
+@inject IAdminService _AdminService;
+@{
+    string Title = _AdminService.GetNameOfSite(1);
+    string Icon = _AdminService.GetIcon(1);
+}
+<!doctype html>
+<html class="no-js" lang="fa">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="googlebot" content="index,follow">
+    <meta name="robots" content="noodp,noydir">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@Title</title>
+    <link rel="icon" href="/@Icon/" type="image/png" />
+    <meta name="description" content="Sanam - Resume / CV / vCard Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Personal , Personal portfolio template, Personal portfolio, landing page, material design, portfolio, Resume, vCard , vCard Template, CV, CV Template">
+    <meta name="author" content="regaltheme.com">
+    <!-- Favicon -->
+    <!-- CSS -->
+    <!-- Bootstrap CSS
+    ============================================ -->
+    <link rel="stylesheet" href="/Site/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Icon Font CSS
+    ============================================ -->
+    <link rel="stylesheet" href="/Site/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="/Site/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/Site/css/menu-icon.css">
+    <link href="~/Site/Tahsilat.css" rel="stylesheet" />
+    <!-- Plugins CSS
+    ============================================ -->
+    <link rel="stylesheet" href="/Site/css/plugins.css">
+    <!-- Style CSS
+    ============================================ -->
+    <link rel="stylesheet" href="/Site/style.css">
+    <!-- Modernizer JS
+    ============================================ -->
+    <script src="/Site/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body style="height: auto;">
+    <!-- Body main wrapper start -->
+    <div id="preloader">
+        <div class="preloader-center">
+            <div class="preloader-center-absolute">
+                <div class="object">
+                    <img style="width: 80px; height: 80px;" src="/Site/img/LOGOF.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Body main wrapper start -->
+
+    <div class="wrapper fix">
+        <div class="container" style="width: 800px;">
+            <!-- About Section -->
+            <div class="about-section row">
+                <!-- About Content -->
+                <div class="col-lg-8 col-md-7 col-xs-12">
+                    <div class="about-content" style="margin: 30px; text-align: right;">
+                        <h4>پروژه</h4>
+                        <h2>
+                            @Model.Rezome.RezomeTitle
+                        </h2>
+                        <p>
+                            @Html.Raw(Model.Rezome.Description)
+                        </p>
+                        @if (Model.Rezome.RezomeLink != null)
+                        {
+                            <a href="@Model.Rezome.RezomeLink" class="btn">مشاهده پروژه</a>
+                        }
+                        else
+                        {
+                            <a disabled="" class="btn">مشاهده پروژه</a>
+                        }
+
+                    </div>
+                </div>
+                <!-- Skill Wrapper -->
+                <div class="col-lg-4 col-md-5 col-xs-12">
+                    <div class="skill-wrapper">
+                        <img style="width: 300px;"src="/Site/img/@Model.Rezome.RezomeImage" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="pricing-section row">
+                <div class="pricing-wrapper col-xs-12">
+
+                    <div class="col-lg-12 col-sm-6 col-xs-12">
+                        <div class="single-pricing">
+                            <div class="pricing-head">
+                                <h3 class="pricing-title">جزئیات پروژه</h3>
+                            </div>
+                            <ul class="pricing-content">
+                                @foreach (var detail in Model.Rezomedetails)
+                                {
+                                    <li>
+                                        <p><span style="font-size: 18px;">@detail.DetailCaption:</span> @detail.DetailValue</p>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-section row" style="margin: 15px;;">
+            <div class="section-title text-center col-xs-12">
+                <h2>تصاویری از پروژه</h2>
+            </div>
+            <div class="portfolio-wrapper">
+                <!-- Portfolio Grid -->
+                <div class="portfolio-grid" style="position: relative; height: 641px;">
+                    
+                    @foreach(var image in Model.Galleries)
+                    {
+                        <div class="portfolio-item design web col-lg-3 col-md-4 col-sm-6 col-xs-12" style="position: absolute; left: 0px; top: 247px;">
+                            <a href="/Site/img/@image.Image" class="image">
+                                <img src="/Site/img/@image.Image" alt="@image.Gallerytitle">
+                                <div class="content">
+                                    <h4>@image.Gallerytitle</h4>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- jQuery JS
+        ============================================ -->
+    <script src="/Site/js/vendor/jquery-1.12.0.min.js"></script>
+    <!-- Bootstrap JS
+    ============================================ -->
+    <script src="/Site/js/bootstrap.min.js"></script>
+    <!-- Plugins JS
+    ============================================ -->
+    <script src="/Site/js/plugins.js"></script>
+    <!-- Form JS
+    ============================================ -->
+    <script src="/Site/js/form.js"></script>
+    <!-- Main JS
+    ============================================ -->
+    <script src="/Site/js/main.js"></script>
+</body>
+
+</html>

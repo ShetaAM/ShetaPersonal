@@ -1,0 +1,33 @@
+﻿@page
+@model ShetaPersonal.Web.Pages.Admin.Rezome.DeleteRezomeModel
+@{
+    ViewData["Title"] = "DeleteRezome";
+    Layout = "~/Pages/Shared/Admin_Layout.cshtml";
+}
+
+<div class="main-content" id="panel">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-user">
+                <div class="card-header">
+                    <form method="post">
+                        <input type="hidden" name="rezomeid" value="@ViewData["rezomeid"]" />
+                        <dl class="dl-horizontal">
+                            <dt>عنوان : </dt>
+                            <dd>@Model.Rezome.RezomeTitle</dd>
+                            <div class="alert alert-danger">
+                                <h4>هشدار! با حذف رزومه تمام گالری و جزئیات رزومه نیز پاک می شود</h4>
+                            </div>
+                            <dd>
+                                <input type="submit" value="حذف" class="btn btn-danger" />
+                            </dd>
+                        </dl>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

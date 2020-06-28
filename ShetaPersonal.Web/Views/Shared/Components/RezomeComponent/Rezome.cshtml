@@ -1,0 +1,44 @@
+﻿@using ShetaPersonal.Core.Serevices.Interface
+@using ShetaPersonal.Data.Model.Entities
+@model ShetaPersonal.Core.DTO.RezomeViewModel;
+@inject IService Service
+<div class="container">
+    <!-- Blog Section -->
+    <div class="blog-section row">
+        <!-- Section Title -->
+        <div class="section-title text-center col-xs-12">
+            <h2><span>نمونه کار</span></h2>
+        </div>
+        <!-- Blog Wrapper -->
+        <div class="blog-wrapper clear-fix ">
+
+            @foreach (var rezome in Model.Rezomes)
+            {
+                <div class="col-lg-4 col-sm-6 col-xs-12 mb-30 float-right">
+                    <div class="blog-post">
+                        <div class="post-image"><img src="/Site/img/@rezome.RezomeImage" alt=""></div>
+                        <div class="content fix">
+                            <h2 class="post-title"><a href="blog-details.html">@rezome.RezomeTitle</a></h2>
+                            <ul class="post-info float-right">
+                                <li><h5>استفاده از:</h5></li>
+                            </ul>
+                            <ul class="post-info ">
+                                @foreach (var tecn in Model.RezomeTecses.Where(t => t.RezomeId == rezome.RezomeId))
+                                {
+                                    <li class="float-right"><a href="#">@tecn.TecTitle</a></li>
+                                }
+                            </ul>
+                            <br />
+                        </div>
+                        <div class="clear-fix"></div>
+                        @inject IService _Service;
+                        <h5 style="text-align: center;">@_Service.getVaziyatByvaziyatId(rezome.VaziyatId)</h5>
+
+                        <a href="/ShowRezome/@rezome.RezomeId" target="_blank" class=" btn btn-success btn-block read-more">جزئیات</a>
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+</div>

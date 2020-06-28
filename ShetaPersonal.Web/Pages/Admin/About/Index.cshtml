@@ -1,0 +1,71 @@
+﻿@page
+@model ShetaPersonal.Web.Pages.Admin.About.IndexModel
+@{
+    ViewData["Title"] = "لیست درباره من";
+    Layout = "~/Pages/Shared/Admin_Layout.cshtml";
+}
+
+    <div class="main-content" id="panel">
+        @await Component.InvokeAsync("NavbarGroupComponent")
+        <hr />
+        <div class="container-fluid mt--6">
+            <!-- Dark table -->
+            <div class="row">
+                <div class="col">
+                    <div class="card bg-default shadow">
+                        <div class="card-header bg-transparent border-0">
+                            <h3 class="text-white mb-0">درباره من</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-dark table-flush">
+                                <thead class="thead-dark" style="font-size: medium!important;">
+                                    <tr>
+                                        <th scope="col" class="sort" data-sort="budget">پروفایل</th>
+                                        <th scope="col" class="sort" data-sort="status">نام و نام خانوادگی</th>
+                                        <th scope="col" class="sort" data-sort="status">ایمیل</th>
+                                        <th scope="col" class="sort" data-sort="status">تاریخ تولد</th>
+                                        <th scope="col" class="sort" data-sort="status">درباره من</th>
+                                        <th scope="col" class="sort" data-sort="completion">دستورات</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="list">
+
+                                    @foreach (var about in Model.ViewModel.Abouts)
+                                    {
+                                        <tr>
+                                            <td><img style="width: 50px;" src="/Site/img/@about.Profile" /></td>
+                                            <td>@about.FName @about.LName</td>
+                                            <td>@about.Email</td>
+                                            <td>@about.BirthDay</td>
+                                            <td>@about.AboutMe</td>
+                                            <td>
+                                                <a asp-page="editabout" asp-route-id="@about.UserId" class="btn btn-warning btn-sm">
+                                                    ویرایش
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="card-footer py-4 shadow" style="background-color: #263238;">
+                            <nav aria-label="...">
+                                <ul class="pagination justify-content-end mb-0">
+
+                                    @for (int i = 1; i <= Model.ViewModel.PageCount; i++)
+                                    {
+                                        <li class="page-item  @((i==Model.ViewModel.CurrentPage)?"active":"")" aria-controls="dataTables-example" tabindex="0">
+                                            <a class="page-link" href="/Admin/about?PageId=@i">@i</a>
+                                        </li>
+                                    }
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+

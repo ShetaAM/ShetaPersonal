@@ -1,0 +1,78 @@
+﻿@page
+@using ShetaPersonal.Data.Model.Entities
+@model ShetaPersonal.Web.Pages.Admin.Sabeghe.IndexModel
+@{
+    ViewData["Title"] = "لیست سوابق";
+    Layout = "~/Pages/Shared/Admin_Layout.cshtml";
+}
+
+<div class="main-content" id="panel">
+    @await Component.InvokeAsync("NavbarGroupComponent")
+    <hr />
+    <div class="container-fluid mt--6">
+        <!-- Dark table -->
+        <div class="row">
+            <div class="col">
+                <div class="card bg-default shadow">
+                    <div class="card-header bg-transparent border-0">
+                        <h3 class="text-white mb-0">لیست سوابق</h3>
+                        <a asp-page="createsabeghe" class="btn btn-success">افزودن سابقه</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-dark table-flush">
+                            <thead class="thead-dark" style="font-size: medium!important;">
+                                <tr>
+                                    <th scope="col" class="sort" data-sort="budget">سمت</th>
+                                    <th scope="col" class="sort" data-sort="status">آیکون</th>
+                                    <th scope="col" class="sort" data-sort="status">شروع کار</th>
+                                    <th scope="col" class="sort" data-sort="status">پایان کار</th>
+                                    <th scope="col" class="sort" data-sort="status">توضیحات</th>
+                                    <th scope="col" class="sort" data-sort="completion">دستورات</th>
+                                </tr>
+                            </thead>
+                            <tbody class="list">
+
+                                @foreach (var sabeghe in Model.ViewModel.Sabeghes)
+                                {
+                                <tr>
+
+                                    <td>@sabeghe.Stitle</td>
+                                    <td><i class="@sabeghe.Icon"></i></td>
+                                    <td>@sabeghe.StartTime</td>
+                                    <td>@sabeghe.EndTime</td>
+                                    <td>@sabeghe.Description</td>
+                                    <td>
+                                        <a asp-page="editsabeghe"asp-route-id="@sabeghe.SId"class="btn btn-warning btn-sm">
+                                            ویرایش
+                                        </a>
+                                        <a asp-page="deletesabeghe"asp-route-id="@sabeghe.SId" class="btn btn-danger btn-sm">
+                                            حذف
+                                        </a>
+                                    </td>
+                                </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card-footer py-4 shadow" style="        background-color: #263238;">
+                        <nav aria-label="...">
+                            <ul class="pagination justify-content-end mb-0">
+
+                                @for (int i = 1; i <= Model.ViewModel.PageCount; i++)
+                                {
+                                    <li class="page-item  @((i==Model.ViewModel.CurrentPage)?"active":"")" aria-controls="dataTables-example" tabindex="0">
+                                        <a class="page-link" href="/Admin/sabeghe?PageId=@i">@i</a>
+                                    </li>
+                                }
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

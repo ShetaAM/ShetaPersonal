@@ -1,0 +1,67 @@
+﻿@page "{id}"
+@model ShetaPersonal.Web.Pages.Admin.RezomeTechnologi.IndexModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/Admin_Layout.cshtml";
+}
+
+<div class="main-content" id="panel">
+    @await Component.InvokeAsync("NavbarGroupComponent")
+    <hr />
+    <div class="container-fluid mt--6">
+        <!-- Dark table -->
+        <div class="row">
+            <div class="col">
+                <div class="card bg-default shadow">
+                    <div class="card-header bg-transparent border-0">
+                        <h3 class="text-white mb-0">لیست جزئیات </h3>
+                        <a href="/admin/RezomeTechnologi/CreateTechnologi/@Model.RezomeId" class="btn btn-success">افزودن تکنولوژی</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-dark table-flush">
+                            <thead class="thead-dark" style="font-size: medium!important;">
+                                <tr>
+                                    <th scope="col" class="sort" data-sort="budget">تکنولوژی </th>
+                                    <th scope="col" class="sort" data-sort="status">دستورات</th>
+                                </tr>
+                            </thead>
+                            <tbody class="list">
+
+                                @foreach (var detail in Model.DetailViewModel.RezomeTecses)
+                                {
+                                    <tr>
+                                        <td>@detail.TecTitle</td>
+                                        <td>
+                                            <a href="/admin/RezomeTechnologi/EditTechnologi/@detail.RTId" class="btn btn-warning btn-sm">
+                                                ویرایش
+                                            </a>
+                                            <a href="/admin/RezomeTechnologi/DeleteTechnologi/@detail.RTId" class="btn btn-danger btn-sm">
+                                                حذف
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card-footer py-4 shadow" style="        background-color: #263238;">
+                        <nav aria-label="...">
+                            <ul class="pagination justify-content-end mb-0">
+
+                                @for (int i = 1; i <= Model.DetailViewModel.PageCount; i++)
+                                {
+                                    <li class="page-item  @((i==Model.DetailViewModel.CurrentPage)?"active":"")" aria-controls="dataTables-example" tabindex="0">
+                                        <a class="page-link" href="/Admin/RezomeTechnologi/?PageId=@i">@i</a>
+                                    </li>
+                                }
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

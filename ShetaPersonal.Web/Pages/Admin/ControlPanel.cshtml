@@ -1,0 +1,148 @@
+﻿@page
+@using ShetaPersonal.Core.Serevices.Interface
+@model ShetaPersonal.Web.Pages.Admin.ControlPanelModel
+@{
+    ViewData["Title"] = "ControlPanel";
+    Layout = "~/Pages/Shared/Admin_Layout.cshtml";
+}
+@inject IAdminService _AdminService;
+@{
+    int Rezome =_AdminService.NumberOfRezome();
+    int maharat =_AdminService.NumberOfMaharat();
+    int Gallery=_AdminService.NumberOfGallery();
+}
+
+
+<div class="main-content" id="panel">
+    <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Search form -->
+                <ul class="navbar-nav align-items-center ml-auto ml-md-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link pr-0"
+                           href="#"
+                           role="button"
+                           data-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false">
+                            <div class="media align-items-center">
+                                <span class="avatar avatar-sm rounded-circle">
+                                    @*<img alt="Image placeholder"
+                                        src="/AdminContent/img/theme/team-4.jpg" />*@
+                                    <i class="fa fa-user-circle fa-2x" style="color: #525f7f;"></i>
+                                </span>
+                                <div class="media-body ml-2 d-none d-lg-block">
+                                    <span class="mb-0 text-sm font-weight-bold">@User.Identity.Name</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-left">
+                            <div class="dropdown-header noti-title">
+                                <h6 class="text-overflow m-0">خوش آمدید</h6>
+                            </div>
+                            <a href="/admin/profile/profile" class="dropdown-item">
+                                <i class="ni ni-single-02"></i>
+                                <span>پروفایل</span>
+                            </a>
+                            <a href="/admin/setting" class="dropdown-item">
+                                <i class="ni ni-settings-gear-65"></i>
+                                <span>تنظیمات</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="/logout" class="dropdown-item">
+                                <i class="ni ni-user-run"></i>
+                                <span>خروج</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Header -->
+    <div class="header bg-primary pb-6">
+        <div class="container-fluid">
+            <div class="header-body">
+                <br />
+                <!-- Card stats -->
+                <div class="row">
+
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card card-stats">
+                            <!-- Card body -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title text-uppercase text-muted mb-0">
+                                            تعداد مهارت ها:  <span class="h2 font-weight-bold mb-0">@maharat</span>
+                                        </h5>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-gradient-danger text-white rounded-circle shadow">
+                                            <i class="fa fa-file-code-o"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card card-stats">
+                            <!-- Card body -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title text-uppercase text-muted mb-0">
+                                            تعداد رزومه ها:  <span class="h2 font-weight-bold mb-0">@Rezome</span>
+                                        </h5>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-gradient-dark text-white rounded-circle shadow">
+                                            <i class="fa fa-folder-open-o"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card card-stats">
+                            <!-- Card body -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title text-uppercase text-muted mb-0">
+                                            تعداد تصاویر:  <span class="h2 font-weight-bold mb-0">@Gallery</span>
+                                        </h5>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-gradient-yellow text-white rounded-circle shadow">
+                                            <i class="fa fa-picture-o"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+        <footer class="footer pt-0">
+            <div class="row align-items-center justify-content-lg-between">
+                <div class="col-lg-6">
+                    <div class="copyright text-center text-lg-left text-muted">
+                        &copy; 1399
+                        <a href="https://amirmohammadsheta.ir"
+                           class="font-weight-bold ml-1"
+                           target="_blank">Amirmohammadsheta.ir</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</div>
